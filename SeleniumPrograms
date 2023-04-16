@@ -1,0 +1,73 @@
+Keybord Actions Program
+package Open;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class KeybordActions {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+//		driver.get("http://the-internet.herokuapp.com/key_presses");
+//		
+//		Actions act=new Actions(driver);
+//		
+//		act.sendKeys(Keys.ENTER).perform();
+//		Thread.sleep(3000);
+//		act.sendKeys(Keys.BACK_SPACE).perform();
+//		Thread.sleep(3000);
+//		act.sendKeys(Keys.ESCAPE).perform();
+//		Thread.sleep(3000);
+//		act.sendKeys(Keys.SPACE).perform();
+		
+		
+		//Combinatuion on Keys
+		driver.get("https://text-compare.com/");
+		
+		WebElement input1=driver.findElement(By.xpath("//*[@id=\"inputText1\"]"));
+		WebElement input2=driver.findElement(By.xpath("//*[@id=\"inputText2\"]"));
+		
+		input1.sendKeys("Automation Testing");
+		Actions act=new Actions(driver);
+		
+		//ctrl A
+		act.keyDown(Keys.CONTROL); // control acitons
+		act.sendKeys("a");
+		act.keyUp(Keys.CONTROL);
+		act.perform();
+		
+		//ctrl C
+				act.keyDown(Keys.CONTROL); // control acitons
+				act.sendKeys("c");
+				act.keyUp(Keys.CONTROL);
+				act.perform();
+				
+				
+		//TAB
+		act.sendKeys(Keys.TAB);
+		act.perform();
+		
+		//ctrl V
+				act.keyDown(Keys.CONTROL); // control acitons
+				act.sendKeys("V");
+				act.keyUp(Keys.CONTROL);
+				act.perform();
+				
+				
+				
+				
+				
+				
+
+	}
+
+}
